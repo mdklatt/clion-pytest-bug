@@ -1,0 +1,28 @@
+# Ignore build directories.
+
+build/
+
+
+# Ignore Python environments.
+
+.python-version
+.venv*/
+
+
+# Ignore Python artifacts.
+
+*.egg-info/
+*.pyc
+*.pyo
+.pytest_cache/
+
+
+# Ignore IDE settings.
+
+.idea/
+
+
+# Ignore OS metadata files.
+
+.DS_Store
+Thumbs.db

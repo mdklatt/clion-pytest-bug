@@ -1,0 +1,2 @@
+# Requirements for the local dev environment.
+pytest==7.3.1
