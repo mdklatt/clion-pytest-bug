@@ -17,6 +17,11 @@ build/
 .pytest_cache/
 
 
+# Ignore Make artifacts.
+
+**/.make-update
+
+
 # Ignore IDE settings.
 
 .idea/
