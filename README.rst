@@ -2,7 +2,7 @@
 CLion Pytest Run Configuration Bug
 ##################################
 
-This is a demonstration of a bug that effects `_CLion pytest run configurations`.
+This is a demonstration of `CPP-33397`_ that effects `CLion pytest run configurations`_.
 CLion builds a local index of header files used by a project for use with its
 various code assistance features. These files can be seen in the *Header Search Paths*
 section of the `Project window content pane`_.
@@ -45,7 +45,7 @@ Execute pytest from the command line. All tests should pass.
     $ make test
 
 
-Open the project in CLion. Set up a C++ toolchain using the `clion-pytest-bug:latest`
+Open the project in CLion. Set up a C++ toolchain using the ``clion-pytest-bug:latest``
 Docker image. Once CLion has finished indexing the project, verify that ``brotli``
 is listed as one of the *Header Search Paths* in the Project tool window.
 
@@ -56,10 +56,11 @@ to see that the value of ``brotli.__path__`` is the cached include path from
 the C++ toolchain.
 
 
-To reproduce the original bug in the real-world project where this was
-discovered, install ``urlib3`` into the local virtualenv and attempt to import
+To reproduce the original bug from the real-world project where this was
+discovered, install ``urllib3`` into the local virtualenv and attempt to import
 it in ``test_pytest.py``.
 
 
+.. _CPP-33397: https://youtrack.jetbrains.com/issue/CPP-33397
 .. _CLion pytest run configurations: https://www.jetbrains.com/help/clion/run-debug-configuration-py-test.html
 .. _Project window content pane: https://www.jetbrains.com/help/clion/project-tool-window.html#content_pane
