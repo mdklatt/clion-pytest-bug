@@ -61,6 +61,30 @@ discovered, install ``urllib3`` into the local virtualenv and attempt to import
 it in ``test_pytest.py``.
 
 
+**********
+Workaround
+**********
+
+Add this before any imports in a local Python script that needs to be executed
+using CLion. This will remove the cached remote headers from the Python import
+search path.
+
+.. code-block:: python
+
+    """ Script that runs as a Python Run Configuration in CLion.
+
+    """
+    # Remove CLion remote toolchain header caches from the module search path to
+    # prevent discovery by the local Python interpreter, which could result in
+    # false positives on import.
+    # <https://youtrack.jetbrains.com/issue/CPP-33397>
+    import sys
+    sys.path = [item for item in sys.path if "Caches/JetBrains/CLion" not in item]
+
+    # Normal script imports go here.
+
+
+
 .. _CPP-33397: https://youtrack.jetbrains.com/issue/CPP-33397
 .. _CLion pytest run configurations: https://www.jetbrains.com/help/clion/run-debug-configuration-py-test.html
 .. _Project window content pane: https://www.jetbrains.com/help/clion/project-tool-window.html#content_pane
